@@ -21,3 +21,14 @@ export async function login() {
     redirect(data.url);
   }
 }
+
+export async function logout() {
+  const supabase = await createClient();
+  let { error } = await supabase.auth.signOut();
+
+  if (error) {
+    console.error(error);
+  }
+
+  redirect("/login");
+}
