@@ -22,3 +22,34 @@ export interface Restaurant {
   primaryType?: string;
   photoUrl: string;
 }
+
+export interface RestaurantSuggestion {
+  type: string;
+  placeId?: string;
+  placeName: string;
+}
+
+export interface GooglePlacesAutocompleteApiResponse {
+  suggestions?: {
+    placePrediction?: {
+      place?: string;
+      placeId?: string;
+      text?: {
+        text?: string;
+      };
+      structuredFormat?: {
+        mainText?: {
+          text?: string;
+        };
+        secondaryText?: {
+          text?: string;
+        };
+      };
+    };
+    queryPrediction?: {
+      text?: {
+        text?: string;
+      };
+    };
+  }[];
+}
